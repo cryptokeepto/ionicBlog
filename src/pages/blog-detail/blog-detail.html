@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let blog of blogDetail" (click)="clickDetail(blog)">
+      <h3>{{ blog.ch_title }}</h3>
+      <p>{{ blog.ch_dateadd }}</p>
+    </button>
+  </ion-list>
+
+</ion-content>
