@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Course } from "../../models/course";
 import { BlogsProvider } from "../../providers/blogs/blogs";
 import { Subscription } from "rxjs/subscription";
@@ -17,6 +17,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
+              private loadingCtrl: LoadingController,
               private blogsProvider: BlogsProvider) {}
 
   ionViewWillEnter() {
@@ -28,10 +29,15 @@ export class HomePage {
   }
 
   private getBlogProvider() {
+    let loading: any = this.loadingCtrl.create({
+      content: "Please Wait..."
+    });
+    loading.present();
+
     this.sub = this.blogsProvider.getBlogs().subscribe(
       (res) => this.blogs = res,
-      (err) => this.errMessage = err,
-      () => console.log("Subscribe blog เรียบร้อย")
+      (err) => { this.errMessage = err, loading.dismiss() },
+      () => { console.log("Subscribe blog เรียบร้อย"), loading.dismiss() }
     );
   }
 
@@ -43,10 +49,8 @@ export class HomePage {
   }
 
    getItems(ev: any) {
-
     // set val to the value of the searchbar
     let val = ev.target.value;
-
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.blogs = this.blogs.filter((blogs: Course) => {
@@ -56,5 +60,6 @@ export class HomePage {
       this.getBlogProvider();
     }
   }
+
 
 }
