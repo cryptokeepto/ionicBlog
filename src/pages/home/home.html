@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
     <button ion-item *ngFor="let blog of blogs" (click)="clickDetail(blog)">
       <h3>{{ blog.c_title }}</h3>

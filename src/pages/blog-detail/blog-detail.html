@@ -12,6 +12,7 @@
     <button ion-item *ngFor="let blog of blogDetail" (click)="clickDetail(blog)">
       <h3>{{ blog.ch_title }}</h3>
       <p>{{ blog.ch_dateadd }}</p>
+      <button ion-button clear item-right>View</button>
     </button>
   </ion-list>
 

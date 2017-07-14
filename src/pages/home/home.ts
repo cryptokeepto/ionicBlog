@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Item } from "../../models/item";
+import { Course } from "../../models/course";
 import { BlogsProvider } from "../../providers/blogs/blogs";
 import { Subscription } from "rxjs/subscription";
 import { BlogDetailPage } from "../blog-detail/blog-detail";
@@ -11,7 +11,7 @@ import { BlogDetailPage } from "../blog-detail/blog-detail";
 })
 export class HomePage {
 
-  blogs: Item[];
+  blogs: Course[];
   sub: Subscription;
   errMessage: any;
 
@@ -40,6 +40,21 @@ export class HomePage {
       id: blog.id,
       title: blog.c_title
     })
+  }
+
+   getItems(ev: any) {
+
+    // set val to the value of the searchbar
+    let val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.blogs = this.blogs.filter((blogs: Course) => {
+        return (blogs.c_title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }else {
+      this.getBlogProvider();
+    }
   }
 
 }

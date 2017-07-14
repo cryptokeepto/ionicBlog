@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Item } from "../../models/item";
+import { Course } from "../../models/course";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -14,9 +15,9 @@ export class BlogsProvider {
 
   constructor(public http: Http) {}
 
-  public getBlogs(): Observable<Item[]> {
+  public getBlogs(): Observable<Course[]> {
     return this.http.get(`${this.url}/get_courses.php`)
-    .map((res: Response) => <Item[]> res.json())
+    .map((res: Response) => <Course[]> res.json())
     .catch(this.handleError);
   } 
 
