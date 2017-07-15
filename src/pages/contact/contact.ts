@@ -12,8 +12,7 @@ export class ContactPage {
   age: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.name = this.navParams.get("name");
-    this.age = this.navParams.get("age");
+
   }
 
 

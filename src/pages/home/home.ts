@@ -13,22 +13,21 @@ export class HomePage {
 
   blogs: Course[];
   sub: Subscription;
-  errMessage: any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               private loadingCtrl: LoadingController,
               private blogsProvider: BlogsProvider) {}
 
-  ionViewWillEnter() {
+  ionViewWillEnter(): void {
     this.getBlogProvider()
   }
 
-  ionViewWillLeave() {
+  ionViewWillLeave(): void {
     this.sub.unsubscribe();
   }
 
-  private getBlogProvider() {
+  private getBlogProvider(): void {
     let loading: any = this.loadingCtrl.create({
       content: "Please Wait..."
     });
@@ -36,7 +35,7 @@ export class HomePage {
 
     this.sub = this.blogsProvider.getBlogs().subscribe(
       (res) => this.blogs = res,
-      (err) => { this.errMessage = err, loading.dismiss() },
+      (err) => { console.log(err), loading.dismiss() },
       () => { console.log("Subscribe blog เรียบร้อย"), loading.dismiss() }
     );
   }
@@ -48,10 +47,9 @@ export class HomePage {
     })
   }
 
-   getItems(ev: any) {
-    // set val to the value of the searchbar
-    let val = ev.target.value;
-    // if the value is an empty string don't filter the items
+  private getItems(ev: any): void { 
+    let val = ev.target.value; 
+   
     if (val && val.trim() != '') {
       this.blogs = this.blogs.filter((blogs: Course) => {
         return (blogs.c_title.toLowerCase().indexOf(val.toLowerCase()) > -1);
@@ -60,6 +58,15 @@ export class HomePage {
       this.getBlogProvider();
     }
   }
+
+  private doRefresh(refresher): void {
+    this.sub = this.blogsProvider.getBlogs().subscribe(
+      (res) => this.blogs = res,
+      (err) => refresher.complete(),
+      () => refresher.complete()
+    );
+  }
+
 
 
 }

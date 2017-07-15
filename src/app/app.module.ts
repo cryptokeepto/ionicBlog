@@ -12,9 +12,11 @@ import { TabsPage } from "../pages/tabs/tabs";
 import { MapPage } from "../pages/map/map";
 import { BlogDetailPage } from "../pages/blog-detail/blog-detail";
 import { YoutubePage } from "../pages/youtube/youtube";
+import { NewsPage } from "../pages/news/news";
 
 // provider
 import { BlogsProvider } from '../providers/blogs/blogs';
+import { NewsProvider } from '../providers/news/news';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +30,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     MapPage,
     BlogDetailPage,
-    YoutubePage
+    YoutubePage,
+    NewsPage
   ],
   imports: [
     BrowserModule,
@@ -44,13 +47,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     MapPage,
     BlogDetailPage,
-    YoutubePage
+    YoutubePage,
+    NewsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BlogsProvider
+    BlogsProvider,
+    NewsProvider
   ]
 })
 export class AppModule {}
