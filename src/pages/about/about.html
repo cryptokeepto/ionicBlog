@@ -1,12 +1,17 @@
 
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-toolbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>About</ion-title>
-  </ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="openSignup()">
+        Sign up
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 
 </ion-header>
 

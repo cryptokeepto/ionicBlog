@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from "../home/home";
+import { SignupPage } from "../signup/signup";
 
 
 @IonicPage()
@@ -31,8 +32,12 @@ export class AboutPage {
     }
   ];
 
-  private goHome():void {
+  private goHome(): void {
     this.navCtrl.setRoot(HomePage)
+  }
+
+  private openSignup(): void {
+    this.navCtrl.push(SignupPage);
   }
 
 

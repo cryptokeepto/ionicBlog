@@ -13,10 +13,12 @@ import { MapPage } from "../pages/map/map";
 import { BlogDetailPage } from "../pages/blog-detail/blog-detail";
 import { YoutubePage } from "../pages/youtube/youtube";
 import { NewsPage } from "../pages/news/news";
+import { SignupPage } from "../pages/signup/signup";
 
 // provider
 import { BlogsProvider } from '../providers/blogs/blogs';
 import { NewsProvider } from '../providers/news/news';
+import { AuthProvider } from '../providers/auth/auth';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,12 +33,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MapPage,
     BlogDetailPage,
     YoutubePage,
-    NewsPage
+    NewsPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -48,14 +51,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MapPage,
     BlogDetailPage,
     YoutubePage,
-    NewsPage
+    NewsPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BlogsProvider,
-    NewsProvider
+    NewsProvider,
+    AuthProvider
   ]
 })
 export class AppModule {}
