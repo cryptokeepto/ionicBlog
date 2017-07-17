@@ -27,7 +27,23 @@ export class AuthProvider {
     return this.http.post(`${this.url}/insert_user.php`, body, options)
     .map((res: Response) => <FeedBack> res.json())
     .catch(this.handleError)
+  }
+
+  // auth0.com
+  public postSignup2(fullname: string, email: string, password: string): Observable<boolean> {
+    let headers = new Headers({ "Content-Type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+
+    let body = {
+      fullname: fullname,
+      email: email,
+      password: password
     }
+
+    return this.http.post(`${this.url}/insert_user.php`, body, options)
+    .map((res: Response) => <FeedBack> res.json())
+    .catch(this.handleError)
+  }
 
   private handleError(err: any) {
     return Observable.throw(err.json() || "เกิดข้อผิดพลาดจาก server");
