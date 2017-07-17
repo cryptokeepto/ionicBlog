@@ -8,27 +8,28 @@
 
 
 <ion-content padding>
+
+<form novalidate [formGroup]="myForm" (ngSubmit)="signup()">  
   <ion-list>
+    <ion-item>
+      <ion-label floating>Full name</ion-label>
+      <ion-input formControlName="fullname" type="text"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label floating>Fullname</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input type="email"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input fromControlName="password" type="password"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <button ion-button full large>Sign up</button>
-  </ion-item>
-
-</ion-list>
+    <ion-item>
+      <button ion-button full large type="submit" [disabled]="!myForm.valid">Sign up</button>
+    </ion-item>
+  </ion-list>
+</form>
 
 </ion-content>
