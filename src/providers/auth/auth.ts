@@ -14,7 +14,7 @@ export class AuthProvider {
     
   constructor(public http: Http) {}
 
-  public postSignup(fullname: string, email: string, password: string): Observable<FeedBack[]> {
+  public postSignup(fullname: string, email: string, password: string): Observable<FeedBack> {
     let headers = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions({ headers: headers });
 
@@ -25,7 +25,7 @@ export class AuthProvider {
     }
 
     return this.http.post(`${this.url}/insert_user.php`, body, options)
-    .map((res: Response) => <FeedBack[]> res.json())
+    .map((res: Response) => <FeedBack> res.json())
     .catch(this.handleError)
     }
 
