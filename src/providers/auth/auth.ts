@@ -30,22 +30,32 @@ export class AuthProvider {
   }
 
   // auth0.com
-  public postSignup2(fullname: string, email: string, password: string): Observable<boolean> {
+  public postSignup2(email: string, password: string): Observable<boolean> {
     let headers = new Headers({ "Content-Type": "application/json" });
-    let options = new RequestOptions({ headers: headers });
+    let options = new RequestOptions({ "headers": headers });
 
     let body = {
-      fullname: fullname,
-      email: email,
-      password: password
+      "client_id": "J6iTalFi8T2yucVCGpoT3OpbsAnEDOmz",
+      "email": email,
+      "password": password,
+      "connection": "Username-Password-Authentication" // ชื่อ database
     }
 
-    return this.http.post(`${this.url}/insert_user.php`, body, options)
-    .map((res: Response) => <FeedBack> res.json())
-    .catch(this.handleError)
+    return this.http.post("https://sittikiat.auth0.com/dbconnections/signup", body, options)
+    .map((res: Response) => {
+      let feedback = res.json();
+      if (feedback) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+    .catch(this.handleError);
+
+
   }
 
   private handleError(err: any) {
-    return Observable.throw(err.json() || "เกิดข้อผิดพลาดจาก server");
+    return Observable.throw(err.json().description || "เกิดข้อผิดพลาดจาก server");
   }
 }

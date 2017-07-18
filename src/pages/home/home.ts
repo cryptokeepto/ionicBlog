@@ -42,8 +42,8 @@ export class HomePage {
 
   private clickDetail(blog): void {
     this.navCtrl.push(BlogDetailPage, {
-      id: blog.id,
-      title: blog.c_title
+      "id": blog.id,
+      "title": blog.c_title
     })
   }
 

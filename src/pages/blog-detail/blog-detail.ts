@@ -55,8 +55,8 @@ export class BlogDetailPage {
     //   url: blog.ch_url
     // });
     let youtubeModal = this.modalCtrl.create(YoutubePage, {
-      title: blog.ch_title,
-      url: blog.ch_url
+      "title": blog.ch_title,
+      "url": blog.ch_url
     })
     youtubeModal.present();
   }

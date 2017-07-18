@@ -32,9 +32,9 @@ export class SignupPage {
     this.password = this.formBuilder.control("", Validators.compose([Validators.required, Validators.minLength(6)]));
 
     this.myForm = this.formBuilder.group({
-      fullname: this.fullname,
-      email: this.email,
-      password: this.password
+      "fullname": this.fullname,
+      "email": this.email,
+      "password": this.password
     });
 
   }
@@ -63,16 +63,16 @@ export class SignupPage {
           this.feedback = res
           if (this.feedback.status == "ok") {
             let alert = this.alertCtrl.create({
-              title: this.feedback.message,
-              subTitle: "Welcome",
+              title: "Welcome",
+              subTitle: this.feedback.message,
               buttons: ["ok"]
             });
             alert.present();
             this.myForm.reset();
           } else {
              let alert = this.alertCtrl.create({
-              title: this.feedback.message,
-              subTitle: "Opps !",
+              title: "Opps !",
+              subTitle: this.feedback.message,
               buttons: ["ok"]
             });
             alert.present();
@@ -86,14 +86,6 @@ export class SignupPage {
           console.log("Subscribe auth เรียบร้อย");
           loading.dismiss();
         }
-        
-
-      
-    );
-
+    ); 
   }
-
-
-
-
 }
