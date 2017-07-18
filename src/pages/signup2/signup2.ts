@@ -20,8 +20,14 @@ export class Signup2Page {
     console.log(myForm);
     let email = myForm.email;
     let password = myForm.password;
-    // subscribe
 
+    // loading
+    let loading = this.loadingCtrl.create({
+       content: "Please Wait..."
+    });
+    loading.present();
+    
+    // subscribe
     this.authProvider.postSignup2(email, password).subscribe(
       (res) => {
         let feedback = res;
@@ -39,9 +45,11 @@ export class Signup2Page {
           buttons: ["ok"]
         });
         alert.present();
+        loading.dismiss();
       },
       () => {
         console.log("Ok");
+        loading.dismiss();
       }
     );
   }
