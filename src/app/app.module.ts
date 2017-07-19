@@ -15,6 +15,7 @@ import { YoutubePage } from "../pages/youtube/youtube";
 import { NewsPage } from "../pages/news/news";
 import { SignupPage } from "../pages/signup/signup";
 import { Signup2Page } from "../pages/signup2/signup2";
+import { LoginPage } from "../pages/login/login";
 
 // provider
 import { BlogsProvider } from '../providers/blogs/blogs';
@@ -36,7 +37,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     YoutubePage,
     NewsPage,
     SignupPage,
-    Signup2Page
+    Signup2Page,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     YoutubePage,
     NewsPage,
     SignupPage,
-    Signup2Page
+    Signup2Page,
+    LoginPage
   ],
   providers: [
     StatusBar,

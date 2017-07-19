@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { AuthProvider } from "../../providers/auth/auth";
+import { LoginPage } from "../login/login";
 
 @IonicPage()
 @Component({
@@ -33,6 +34,7 @@ export class Signup2Page {
         let feedback = res;
         if (feedback === true) {
           console.log("Login Success :)");
+          this.navCtrl.setRoot(LoginPage);
         } else {
           console.log("Login Fail :(");
         }
