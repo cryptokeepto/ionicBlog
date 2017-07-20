@@ -16,6 +16,7 @@ import { NewsPage } from "../pages/news/news";
 import { SignupPage } from "../pages/signup/signup";
 import { Signup2Page } from "../pages/signup2/signup2";
 import { LoginPage } from "../pages/login/login";
+import { Contact2Page } from "../pages/contact2/contact2";
 
 // provider
 import { BlogsProvider } from '../providers/blogs/blogs';
@@ -24,6 +25,7 @@ import { AuthProvider } from '../providers/auth/auth';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -38,11 +40,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NewsPage,
     SignupPage,
     Signup2Page,
-    LoginPage
+    LoginPage,
+    Contact2Page
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -58,7 +62,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NewsPage,
     SignupPage,
     Signup2Page,
-    LoginPage
+    LoginPage,
+    Contact2Page
   ],
   providers: [
     StatusBar,
