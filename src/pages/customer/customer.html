@@ -1,0 +1,37 @@
+<ion-header>
+ <ion-toolbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Customer</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="openForm()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form *ngIf="isToggle" novalidate #myForm="ngForm" (ngSubmit)="insert(myForm.value)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Fullname</ion-label>
+        <ion-input name="fullname" #fullname="ngModel" ngModel type="text" required></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label floating>Phone</ion-label>
+        <ion-input name="phone" #phone="ngModel" ngModel type="tel" required minlength="6"></ion-input>
+      </ion-item
+      >
+      <ion-item>
+        <button ion-button full large type="submit" [disabled]="!myForm.form.valid">ok</button>
+      </ion-item>
+    </ion-list>
+  </form>
+
+
+</ion-content>

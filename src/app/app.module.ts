@@ -17,6 +17,7 @@ import { SignupPage } from "../pages/signup/signup";
 import { Signup2Page } from "../pages/signup2/signup2";
 import { LoginPage } from "../pages/login/login";
 import { Contact2Page } from "../pages/contact2/contact2";
+import { CustomerPage } from "../pages/customer/customer";
 
 // provider
 import { BlogsProvider } from '../providers/blogs/blogs';
@@ -41,7 +42,8 @@ import { IonicStorageModule } from "@ionic/storage";
     SignupPage,
     Signup2Page,
     LoginPage,
-    Contact2Page
+    Contact2Page,
+    CustomerPage
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { IonicStorageModule } from "@ionic/storage";
     SignupPage,
     Signup2Page,
     LoginPage,
-    Contact2Page
+    Contact2Page,
+    CustomerPage
   ],
   providers: [
     StatusBar,
