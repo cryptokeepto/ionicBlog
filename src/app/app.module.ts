@@ -27,6 +27,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from "@ionic/storage";
+import { SQLite } from "@ionic-native/sqlite";
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { IonicStorageModule } from "@ionic/storage";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BlogsProvider,
     NewsProvider,
-    AuthProvider
+    AuthProvider,
+    SQLite
   ]
 })
 export class AppModule {}
